@@ -6,6 +6,7 @@ import '../models/workout_set.dart';
 import '../models/workout_session.dart';
 import '../services/workout_history_repository.dart';
 import '../main.dart';
+import '../widgets/exercise/exercise_header.dart';
 
 class WorkoutSessionExerciseScreen extends StatefulWidget {
   final String exerciseName;
@@ -328,19 +329,23 @@ class _WorkoutSessionExerciseScreenState
       backgroundColor:
           const Color(0xFF121212),
       appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: Text(widget.exerciseName,
-            style:
-                const TextStyle(fontWeight: FontWeight.bold)),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.timer),
-            onPressed: _changeRestTime,
-          ),
-        ],
-      ),
+  backgroundColor: Colors.black,
+  title: const SizedBox.shrink(),
+  actions: [
+    IconButton(
+      icon: const Icon(Icons.timer),
+      onPressed: _changeRestTime,
+    ),
+  ],
+),
       body: Column(
         children: [
+
+          ExerciseHeader(
+  exerciseName: widget.exerciseName,
+  workoutName: widget.session.templateName,
+),
+
           if (_restSeconds > 0)
             Container(
               width: double.infinity,
