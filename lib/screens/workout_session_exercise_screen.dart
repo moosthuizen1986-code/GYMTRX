@@ -467,20 +467,23 @@ class _WorkoutSessionExerciseScreenState
                                 color: Colors
                                     .white),
                       ),
-                      trailing:
-                          ElevatedButton(
-                        style: ElevatedButton
-                            .styleFrom(
-                          backgroundColor:
-                              Colors
-                                  .redAccent,
-                        ),
-                        onPressed: () =>
-                            _completeSet(
-                                index, set),
-                        child: const Text(
-                            'DONE'),
-                      ),
+                   trailing: SizedBox(
+  width: 80,
+  child: ElevatedButton(
+    style: ElevatedButton.styleFrom(
+      backgroundColor: Colors.redAccent,
+      minimumSize: Size.zero,
+      padding: const EdgeInsets.symmetric(
+        horizontal: 8,
+      ),
+    ),
+    onPressed: () => _completeSet(index, set),
+    child: const Text(
+      "DONE",
+      style: TextStyle(fontSize: 12),
+    ),
+  ),
+),
                     ),
                   ),
                 );
